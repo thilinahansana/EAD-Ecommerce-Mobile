@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ShoeX</string>
+    <string name="like">Like</string>
+    <string name="JordanDesciption">Air Jordan is a line of basketball shoes and athletic clothing produced by American corporation Nike. The first Air Jordan shoe was produced for Hall of Fame former basketball player Michael Jordan</string>
+    <string name="type_filter">Filter by Type</string>
+    <string name="size_filter">Filter by Size</string>
+
+    <string-array name="type_filter_options">
+        <item>All</item>
+        <item>Women</item>
+        <item>Kids</item>
+        <item>Men</item>
+    </string-array>
+
+    <string-array name="size_filter_options">
+        <item>All</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+</resources>

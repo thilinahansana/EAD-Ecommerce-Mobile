@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- User Image Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <!-- ImageView to Display Selected Image -->
+        <ImageView
+            android:id="@+id/imageViewProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_person"
+            android:background="@drawable/oval_image_background"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+
+        android:layout_marginEnd="16dp"/>
+
+        <!-- Button to Trigger Image Selection -->
+        <Button
+            android:id="@+id/buttonSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:padding="12dp"
+            android:backgroundTint="@color/inputclr"
+            android:textColor="@android:color/black"
+            android:fontFamily="monospace"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_background"
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="monospace"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_background"
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="monospace"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_background"
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_email"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="monospace"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_background"
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_lock"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="monospace"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_background"
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_lock"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextRePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Re-enter Password"
+            android:inputType="textPassword"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="monospace"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_background"
+        android:orientation="horizontal"
+        android:elevation="1dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_phone"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="monospace"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+    </LinearLayout>
+
+
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/headingclr"
+        android:padding="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+</LinearLayout>

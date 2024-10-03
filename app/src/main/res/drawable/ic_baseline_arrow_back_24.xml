@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <!-- Shadow background -->
+
+
+  <!-- Back button background -->
+  <item android:top="1dp" android:bottom="1dp" android:left="1dp" android:right="1dp">
+    <shape android:shape="oval">
+      <solid android:color="@color/white" /> <!-- Background color -->
+    </shape>
+  </item>
+
+  <!-- Back arrow icon -->
+  <item android:top="2dp" android:left="2dp" android:bottom="2dp" android:right="2dp" android:drawable="@drawable/ic_back" android:gravity="center"/>
+</layer-list>

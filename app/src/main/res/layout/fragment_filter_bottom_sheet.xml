@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_filter_bottom_sheet.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Type Filter -->
+    <TextView
+        android:id="@+id/textViewType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:textStyle="bold"
+        android:paddingTop="8dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/radioAllTypes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:checked="true" />
+        <RadioButton
+            android:id="@+id/radioMen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Men" />
+        <RadioButton
+            android:id="@+id/radioWomen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Women" />
+        <RadioButton
+            android:id="@+id/radioKids"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kids" />
+    </RadioGroup>
+
+    <!-- Size Filter -->
+    <TextView
+        android:id="@+id/textViewSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Size"
+        android:textStyle="bold"
+        android:paddingTop="8dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/radioAllSizes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:checked="true" />
+        <RadioButton
+            android:id="@+id/radioSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Small" />
+        <RadioButton
+            android:id="@+id/radioMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium" />
+        <RadioButton
+            android:id="@+id/radioLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large" />
+    </RadioGroup>
+
+    <!-- Price Range Filter -->
+    <TextView
+        android:id="@+id/textViewPriceRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price Range"
+        android:textStyle="bold"
+        android:paddingTop="8dp" />
+
+    <EditText
+        android:id="@+id/editTextMinPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Min Price"
+        android:inputType="numberDecimal"
+        android:paddingTop="4dp" />
+
+    <EditText
+        android:id="@+id/editTextMaxPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Max Price"
+        android:inputType="numberDecimal"
+        android:paddingTop="4dp" />
+
+    <!-- Apply Filter Button -->
+    <Button
+        android:id="@+id/btnApplyFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apply Filter"
+        android:paddingTop="16dp" />
+
+</LinearLayout>
