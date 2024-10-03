@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Background color of the oval -->
+    <solid android:color="#FFFFFF"/> <!-- You can change the color as needed -->
+
+    <!-- Border/Stroke of the oval -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/headingclr"/> <!-- Border color, change as needed -->
+
+    <!-- Padding inside the oval -->
+    <padding
+        android:left="4dp"
+        android:top="4dp"
+        android:right="4dp"
+        android:bottom="4dp"/>
+</shape>
