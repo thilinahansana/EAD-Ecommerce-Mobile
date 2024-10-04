@@ -44,11 +44,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:elevation="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvCartItems"
-        android:background="@color/grayishWhite"
+        android:background="@drawable/cart_bottom_background"
         android:padding="20dp"
         >
 
@@ -64,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="SubTotal Items(0)"
+                android:fontFamily="monospace"
                 android:textColor="@color/greyishtext" />
 
             <TextView
@@ -71,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$0"
+                android:fontFamily="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -88,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:text="Delivery Price"
                 android:layout_weight="1"
+                android:fontFamily="monospace"
                 android:textColor="@color/greyishtext"
                 />
 
@@ -95,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$0"
+                android:fontFamily="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -120,6 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Price"
+                android:fontFamily="monospace"
                 android:textColor="@color/greyishtext"
                 android:layout_weight="1"
                 />
@@ -129,6 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$0"
+                android:fontFamily="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -146,7 +153,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
             android:text="Checkout"
+            android:fontFamily="monospace"
             android:textAllCaps="false"
+            android:textStyle="bold"
             android:textColor="@color/white" />
 
     </LinearLayout>

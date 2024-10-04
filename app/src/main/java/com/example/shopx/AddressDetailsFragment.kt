@@ -2,7 +2,6 @@ package com.example.shopx
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import com.example.shopx.model.Address
 
 class AddressDetailsFragment : Fragment() {
     private lateinit var editTextAddressStreet: EditText
@@ -31,20 +31,15 @@ class AddressDetailsFragment : Fragment() {
         buttonSignUp = view.findViewById(R.id.buttonSignUp)
 
         buttonSignUp.setOnClickListener {
-
-                // Call sign up method in ActivitySignup
-                (activity as? ActivitySignup)?.let { signupActivity ->
-                    signupActivity.onAddressDetailsComplete(getAddressDetails())
-                } ?: run {
-                    println("Error: Unable to process signup")
-                }
-
+            if (validateInputs()) {
+                (activity as? ActivitySignup)?.onAddressDetailsComplete(getAddressDetails())
+            }
         }
 
         return view
     }
 
-    fun getAddressDetails(): Address {
+    private fun getAddressDetails(): Address {
         return Address(
             street = editTextAddressStreet.text.toString(),
             city = editTextAddressCity.text.toString(),
@@ -52,5 +47,11 @@ class AddressDetailsFragment : Fragment() {
             country = editTextAddressCountry.text.toString(),
             zipCode = editTextAddressZipCode.text.toString()
         )
+    }
+
+    private fun validateInputs(): Boolean {
+        // Add your validation logic here
+        // Return true if all inputs are valid, false otherwise
+        return true
     }
 }

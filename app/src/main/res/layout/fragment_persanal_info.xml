@@ -20,7 +20,7 @@
             android:id="@+id/imageViewProfile"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_person"
+            android:src="@drawable/user_svg"
             android:background="@drawable/oval_image_background"
         android:layout_gravity="center"
         android:scaleType="centerCrop"

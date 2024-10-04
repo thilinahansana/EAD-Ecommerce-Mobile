@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shopx.adapter.OrderAdapter
 import com.example.shopx.databinding.ActivityOrderBinding
+import com.example.shopx.model.Order
 
 class OrderActivity : AppCompatActivity() {
 

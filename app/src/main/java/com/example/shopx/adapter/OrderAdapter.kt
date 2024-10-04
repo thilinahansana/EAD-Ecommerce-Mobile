@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shopx.Order
+import com.example.shopx.model.Order
 import com.example.shopx.databinding.OrderItemBinding
 
 class OrderAdapter(

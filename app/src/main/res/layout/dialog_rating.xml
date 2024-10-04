@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rate this Product"
+        android:fontFamily="monospace"
         android:textSize="20sp"
         android:textStyle="bold"
         android:paddingBottom="16dp" />
@@ -36,5 +37,8 @@
         android:id="@+id/submitRatingButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
         android:text="Submit Rating" />
 </LinearLayout>

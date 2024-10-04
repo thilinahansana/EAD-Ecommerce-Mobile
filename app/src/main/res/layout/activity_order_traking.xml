@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/order_id_text"
@@ -11,7 +12,9 @@
         android:layout_height="wrap_content"
         android:text="Order ID"
         android:textSize="18sp"
+        android:fontFamily="monospace"
         android:textStyle="bold"
+        android:textColor="@color/headingclr"
         android:paddingBottom="8dp" />
 
     <TextView
@@ -19,7 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Status"
+        android:fontFamily="monospace"
         android:textSize="16sp"
+        android:textColor="@color/black"
         android:paddingBottom="8dp" />
 
     <TextView
@@ -27,7 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tracking Details"
+        android:fontFamily="monospace"
         android:textSize="14sp"
+        android:textColor="@color/black"
         android:paddingBottom="16dp" />
 
     <!-- Button to rate the product -->
@@ -35,6 +42,12 @@
         android:id="@+id/rating_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rate this Product"
-        android:visibility="gone" /> <!-- Initially hidden -->
+        android:text="Rate this Order"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:backgroundTint="@drawable/custom_button"
+        android:padding="2dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:visibility="visible" /> <!-- Initially hidden -->
 </LinearLayout>

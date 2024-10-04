@@ -12,6 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Type"
+        android:fontFamily="monospace"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:paddingTop="8dp" />
 
@@ -24,21 +26,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="All"
-            android:checked="true" />
+            android:fontFamily="monospace"
+            android:checked="true"/>
         <RadioButton
             android:id="@+id/radioMen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Men" />
+            android:text="Men"
+            android:fontFamily="monospace"
+            />
         <RadioButton
             android:id="@+id/radioWomen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="Women" />
         <RadioButton
             android:id="@+id/radioKids"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="Kids" />
     </RadioGroup>
 
@@ -48,6 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Size"
+        android:fontFamily="monospace"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:paddingTop="8dp" />
 
@@ -59,22 +68,26 @@
             android:id="@+id/radioAllSizes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="All"
             android:checked="true" />
         <RadioButton
             android:id="@+id/radioSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="Small" />
         <RadioButton
             android:id="@+id/radioMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="Medium" />
         <RadioButton
             android:id="@+id/radioLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="Large" />
     </RadioGroup>
 
@@ -84,6 +97,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price Range"
+        android:fontFamily="monospace"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:paddingTop="8dp" />
 
@@ -92,6 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Min Price"
+        android:fontFamily="monospace"
         android:inputType="numberDecimal"
         android:paddingTop="4dp" />
 
@@ -100,15 +116,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Max Price"
+        android:fontFamily="monospace"
         android:inputType="numberDecimal"
         android:paddingTop="4dp" />
 
     <!-- Apply Filter Button -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
     <Button
         android:id="@+id/btnApplyFilter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Apply Filter"
-        android:paddingTop="16dp" />
+        android:textStyle="bold"
+        android:backgroundTint="@color/black"
+        android:fontFamily="monospace"
+       />
 
 </LinearLayout>
