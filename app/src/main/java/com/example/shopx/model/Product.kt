@@ -1,14 +1,18 @@
 package com.example.shopx.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Product(
+    val id: String,
     val name: String,
     val description: String,
     val price: Double,
-    val stockQuantity: Int,
     val imageUrl: String,
-    val createdAt: String,
-    val updatedAt: String,
-    val type: String, // For filtering by type (e.g., "Women", "Kids", "Men")
+    val stockQuantity: Int,
+    val type: String,
     val size: String,
-    var isLiked: Boolean = false  // We'll keep this for client-side like functionality
-)
+    var isLiked: Boolean = false
+) : Parcelable
+

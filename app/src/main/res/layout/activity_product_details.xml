@@ -49,13 +49,15 @@
                 android:id="@+id/ivDetails"
                 android:layout_width="match_parent"
                 android:layout_height="380dp"
-                android:padding="20dp"
+                android:padding="0dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/shoe7"
                 app:layout_constraintBottom_toTopOf="@id/llBottomDetails"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
 
         </LinearLayout>
     </ScrollView>
@@ -171,3 +173,4 @@
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+

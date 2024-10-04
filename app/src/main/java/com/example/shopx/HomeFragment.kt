@@ -1,5 +1,8 @@
+// HomeFragment.kt
+
 package com.example.shopx
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +41,15 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         productAdapter = ProductAdapter(filteredProducts) { product ->
-            Toast.makeText(context, "${product.name} ${if (product.isLiked) "liked" else "unliked"}", Toast.LENGTH_SHORT).show()
+            // Navigate to ProductDetailsActivity with product data
+            val intent = Intent(context, ProductDetailsActivity::class.java).apply {
+                putExtra("productName", product.name)
+                putExtra("productDescription", product.description)
+                putExtra("productPrice", product.price)
+                putExtra("productImage", product.imageUrl)
+                putExtra("productStockQuantity", product.stockQuantity)
+            }
+            startActivity(intent)
         }
         binding.recyclerViewProducts.apply {
             layoutManager = GridLayoutManager(context, 2)
@@ -54,6 +65,7 @@ class HomeFragment : Fragment() {
             filterBottomSheet.show(parentFragmentManager, filterBottomSheet.tag)
         }
     }
+
 
     private fun applyFilters(type: String, size: String, minPrice: Double?, maxPrice: Double?) {
         filteredProducts.clear()
@@ -75,7 +87,7 @@ class HomeFragment : Fragment() {
                 products.clear()
                 products.addAll(fetchedProducts)
                 filteredProducts.clear()
-                filteredProducts.addAll(products) // Show all products initially
+                filteredProducts.addAll(products)
                 productAdapter.notifyDataSetChanged()
             } catch (e: Exception) {
                 Toast.makeText(context, "Error fetching products: ${e.message}", Toast.LENGTH_LONG).show()
@@ -88,4 +100,3 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 }
-

@@ -18,6 +18,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/user_svg"
         android:background="@drawable/circle_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

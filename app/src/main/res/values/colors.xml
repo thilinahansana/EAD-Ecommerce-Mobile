@@ -14,4 +14,5 @@
     <color name="closebtnclr">#ff0006</color>
     <color name="headingclr">#212121</color>
     <color name="iconclr">#424242</color>
+    <color name="trackbtn">#FFEBEE</color>
 </resources>

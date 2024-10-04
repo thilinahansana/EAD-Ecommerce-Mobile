@@ -4,6 +4,8 @@
 
     <!-- Add Internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -34,11 +36,12 @@
         <activity android:name=".LoginActivity"
             android:exported="false"
             />
-
         <activity android:name=".OrderActivity"/>
         <activity android:name=".ProfileInformationActivity"/>
         <activity android:name=".UserProfileActivity"/>
         <activity android:name=".OrderTrackingActivity"/>
+        <activity android:name=".ProductDetailsActivity"/>
+
     </application>
 
 </manifest>

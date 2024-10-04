@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,28 +25,49 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/user_svg"
-        android:layout_gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/profile_toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    android:layout_gravity="center"
+        android:background="@drawable/oval_image_background"
+    app:layout_constraintTop_toBottomOf="@id/profile_toolbar"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    tools:ignore="ContentDescription" />
 
-    <!-- Name Input -->
+    <!-- First Name Input -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/name_input_layout"
+        android:id="@+id/first_name_input_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="First Name"
         app:layout_constraintTop_toBottomOf="@id/profile_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name_input"
+            android:id="@+id/first_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="John Doe" />
+            android:text="John" /> <!-- Replace with dynamic data in code -->
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Last Name Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/last_name_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Last Name"
+        app:layout_constraintTop_toBottomOf="@id/first_name_input_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/last_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Doe" /> <!-- Replace with dynamic data in code -->
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Email Input -->
@@ -54,7 +76,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Email"
-        app:layout_constraintTop_toBottomOf="@id/name_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/last_name_input_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">
@@ -64,10 +86,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:text="john.doe@example.com" />
+            android:text="john.doe@example.com" /> <!-- Replace with dynamic data in code -->
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Phone Input -->
+    <!-- Phone Number Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/phone_input_layout"
         android:layout_width="0dp"
@@ -83,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            android:text="+123456789" />
+            android:text="+123456789" /> <!-- Replace with dynamic data in code -->
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Update Button -->

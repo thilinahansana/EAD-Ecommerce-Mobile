@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/likeFragment"
-        android:name="com.example.shopx.LikeFragment"
+        android:name="com.example.shopx.SearchFragment"
         android:label="Likes"
         tools:layout="@layout/fragment_like" >
         <action
