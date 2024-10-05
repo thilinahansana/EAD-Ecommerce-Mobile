@@ -101,6 +101,7 @@ class ActivitySignup : AppCompatActivity() {
             phoneNumber = personalInfo.phoneNumber,
             addresss = address,
             role = 2,
+            isActive = false,
             createdDate = formattedDate,
             updatedDate = formattedDate,
             profilePicture = ""
@@ -117,7 +118,7 @@ class ActivitySignup : AppCompatActivity() {
 
                 val requestBody = json.toRequestBody("application/json; charset=utf-8".toMediaType())
                 val request = Request.Builder()
-                    .url("http://[2402:d000:a400:7088:5c68:8db9:9a1c:7c0b]/api/v1/signup")
+                    .url("http://10.0.2.2:5001/api/v1/signup")
                     .post(requestBody)
                     .build()
 

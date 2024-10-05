@@ -121,4 +121,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/deactivate_profile_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:strokeColor="@color/teal_200"
+        android:text="Deactivate Account"
+        android:textColor="@color/colorSelected"
+        android:backgroundTint="@color/trackbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_profile_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

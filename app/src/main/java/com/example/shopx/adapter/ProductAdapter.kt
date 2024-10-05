@@ -36,6 +36,8 @@ class ProductAdapter(private val products: List<Product>, private val onLikeClic
                 itemView.setOnClickListener {
                     val context = itemView.context
                     val intent = Intent(context, ProductDetailsActivity::class.java).apply {
+                        putExtra("productId" , product.productId)
+                        putExtra("vendorId" , product.vendorId)
                         putExtra("productName", product.name)
                         putExtra("productDescription", product.description)
                         putExtra("productPrice", product.price)

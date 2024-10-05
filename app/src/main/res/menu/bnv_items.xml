@@ -4,25 +4,25 @@
     <item
         android:id="@+id/mainFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="HomePage" />
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
 
     <item
         android:id="@+id/likeFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_heart_svgrepo_com"
-        android:title="LikePage" />
+        android:icon="@drawable/search_icon"
+        android:title="Search" />
 
     <item
         android:id="@+id/cartFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:title="CartPage" />
+        android:icon="@drawable/cart_icon"
+        android:title="Cart" />
 
     <item
         android:id="@+id/profileFragment"
         android:enabled="true"
-        android:icon="@drawable/user_svg"
-        android:title="ProfilePage" />
+        android:icon="@drawable/user_icon"
+        android:title="Profile" />
 
 </menu>

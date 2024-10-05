@@ -3,6 +3,7 @@ package com.example.shopx
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.shopx.databinding.ActivityLoginBinding
@@ -57,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
 
         val requestBody = json.toRequestBody("application/json; charset=utf-8".toMediaType())
         val request = Request.Builder()
-            .url("http://[2402:d000:a400:7088:5c68:8db9:9a1c:7c0b]/api/v1/login")
+            .url("http://10.0.2.2:5001/api/v1/login")
             .post(requestBody)
             .build()
 
@@ -77,21 +78,70 @@ class LoginActivity : AppCompatActivity() {
     private suspend fun handleResponse(response: Response) {
         withContext(Dispatchers.Main) {
             val responseBody = response.body?.string()
-            if (response.code == 200) {
-                Log.d("Login", "Successful response: $responseBody")
-                val jsonObject = JSONObject(responseBody)
-                val token = jsonObject.getString("token")
-                val userJson = jsonObject.getJSONObject("user").toString()
+            val errorMessageTextView = binding.textViewError // Bind the TextView
 
-                sessionManager.saveUserSession(token, userJson)
+            when (response.code) {
+                200 -> {
+                    // Successful login response
+                    val jsonObject = JSONObject(responseBody)
+                    val token = jsonObject.getString("token")
+                    val userJson = jsonObject.getJSONObject("user")
 
-                Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                finish()
-            } else {
-                Log.e("Login", "Error response: $responseBody")
-                Toast.makeText(this@LoginActivity, "Login Failed: ${response.message}", Toast.LENGTH_SHORT).show()
+                    if (userJson.getBoolean("isActive")) {
+                        // User is active, proceed with login
+                        Log.d("Login", "Successful response: $responseBody")
+
+                        // Save session data
+                        sessionManager.saveUserSession(token, userJson.toString())
+
+                        // Hide error message, clear previous errors
+                        errorMessageTextView.visibility = View.GONE
+
+                        // Proceed to MainActivity
+                        Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
+                    } else {
+                        // Account is not activated
+                        errorMessageTextView.text = "Account Not Activated"
+                        errorMessageTextView.visibility = View.VISIBLE // Show the error message
+                    }
+                }
+                403 -> {
+                    // Handle forbidden response for inactive accounts
+                    val errorMessage = extractErrorMessage(responseBody)
+                    Log.e("Login", "Error response: $errorMessage")
+
+                    // Display the error message in the TextView
+                    errorMessageTextView.text = errorMessage ?: "Unknown error"
+                    errorMessageTextView.visibility = View.VISIBLE // Show the error message
+                }
+                else -> {
+                    // Handle other error codes
+                    val errorMessage = extractErrorMessage(responseBody)
+                    Log.e("Login", "Error response: $errorMessage")
+
+                    // Display the error message in the TextView
+                    errorMessageTextView.text = errorMessage ?: "Unknown error"
+                    errorMessageTextView.visibility = View.VISIBLE // Show the error message
+                }
             }
         }
     }
+
+
+    // Function to extract error messages from the response body
+    private fun extractErrorMessage(responseBody: String?): String {
+        return try {
+            if (responseBody != null) {
+                val jsonObject = JSONObject(responseBody)
+                jsonObject.getString("message") // Assuming the error message is in "message" field
+            } else {
+                "Unknown error occurred"
+            }
+        } catch (e: Exception) {
+            "Error parsing error message"
+        }
+    }
+
 }

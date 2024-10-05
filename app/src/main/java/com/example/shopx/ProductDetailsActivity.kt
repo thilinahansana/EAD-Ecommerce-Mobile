@@ -2,6 +2,7 @@ package com.example.shopx
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.shopx.databinding.ActivityProductDetailsBinding
@@ -13,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.concurrent.TimeUnit
 
 class ProductDetailsActivity : AppCompatActivity() {
 
@@ -25,80 +27,91 @@ class ProductDetailsActivity : AppCompatActivity() {
         binding = ActivityProductDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize SessionManager
         sessionManager = SessionManager(this)
 
-        // Initialize Retrofit
+        // Initialize Retrofit with longer timeout
+        val okHttpClient = OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .build()
+
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://your.api.base.url/") // Change this to your base URL
+            .baseUrl("http://10.0.2.2:5001/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
-            .client(OkHttpClient.Builder().build())
+            .client(okHttpClient)
             .build()
 
         apiService = retrofit.create(ApiService::class.java)
 
         // Get product data from the intent
         val productId = intent.getStringExtra("productId")
+        val vendorId = intent.getStringExtra("vendorId")
         val productName = intent.getStringExtra("productName")
         val productDescription = intent.getStringExtra("productDescription")
         val productPrice = intent.getDoubleExtra("productPrice", 0.0)
         val productImage = intent.getStringExtra("productImage")
-        val productStockQuantity = intent.getIntExtra("productStockQuantity", 0)
-
-        // Get customerId from the JWT token
-        val customerId = getCustomerIdFromSession()
 
         // Set the data to views
         binding.tvDetailsProductName.text = productName
         binding.tvDetailsProductDescription.text = productDescription
         binding.tvDetailsProductPrice.text = "$productPrice"
-        // Optional: Display stock quantity if needed
-        // binding.tvStockQuantity.text = "In stock: $productStockQuantity"
 
         // Load product image
         Glide.with(this)
             .load(productImage)
             .into(binding.ivDetails)
+        // Get user from SessionManager
+        val user = sessionManager.getUser()
+
+        if (user == null) {
+            Log.e("ProductDetailsActivity", "User data not found in session")
+            Toast.makeText(this, "User session error. Please log in again.", Toast.LENGTH_LONG).show()
+            // TODO: Redirect to login screen
+            return
+        }
 
         // Prepare order data for POST request
-        val orderData = prepareOrderData(customerId, productId, productName, productPrice, productImage)
+        val orderData = prepareOrderData(user.id, productId, productName,vendorId, productPrice, productImage)
 
-        binding.btnDetailsAddToCart.setOnClickListener{
+        binding.btnDetailsAddToCart.setOnClickListener {
             postOrderData(orderData)
         }
-        // Make the API call to post order data
-
     }
 
-    private fun getCustomerIdFromSession(): String? {
-        val token = sessionManager.getToken() ?: return null
-        val claims = sessionManager.decodeToken() ?: return null
-        return claims["customerId"] as? String // Adjust based on your JWT structure
-    }
-
-    private fun prepareOrderData(customerId: String?, productId: String?, productName: String?, productPrice: Double, productImage: String?): OrderRequest {
+    private fun prepareOrderData(customerId: String?, productId: String?, productName: String?, vendorId: String?, productPrice: Double, productImage: String?): OrderRequest {
         return OrderRequest(
             customerId = customerId,
             productId = productId,
             productName = productName,
-            quantity = 1, // Adjust as necessary
+            vendorId = vendorId,
+            quantity = 1,
             price = productPrice.toString(),
-            imageUrl = productImage
+            imageUrl = productImage,
         )
     }
 
     private fun postOrderData(orderData: OrderRequest) {
+        binding.btnDetailsAddToCart.isEnabled = false // Disable button to prevent multiple clicks
+
+        Log.i("String" , "Order Details  $orderData")
+
         apiService.postOrder(orderData).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                binding.btnDetailsAddToCart.isEnabled = true // Re-enable button
                 if (response.isSuccessful) {
                     Log.d("ProductDetailsActivity", "Order successfully posted.")
+                    Toast.makeText(this@ProductDetailsActivity, "Added to cart successfully", Toast.LENGTH_SHORT).show()
                 } else {
                     Log.e("ProductDetailsActivity", "Failed to post order: ${response.code()}")
+                    Toast.makeText(this@ProductDetailsActivity, "Failed to add to cart. Please try again.", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
+                binding.btnDetailsAddToCart.isEnabled = true // Re-enable button
                 Log.e("ProductDetailsActivity", "Error posting order: ${t.message}", t)
+                Toast.makeText(this@ProductDetailsActivity, "Network error. Please check your connection and try again.", Toast.LENGTH_SHORT).show()
             }
         })
     }

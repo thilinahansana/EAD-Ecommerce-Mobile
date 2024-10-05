@@ -130,6 +130,7 @@
         android:layout_height="wrap_content"
         android:text="Apply Filter"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:backgroundTint="@color/black"
         android:fontFamily="monospace"
        />
