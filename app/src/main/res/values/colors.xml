@@ -15,4 +15,7 @@
     <color name="headingclr">#212121</color>
     <color name="iconclr">#424242</color>
     <color name="trackbtn">#FFEBEE</color>
+    <color name="colorSelected">#FF0000</color>
+    <color name="colorUnselected">#808080</color>
+    <color name="bottomnav">#FFFFFF</color>
 </resources>

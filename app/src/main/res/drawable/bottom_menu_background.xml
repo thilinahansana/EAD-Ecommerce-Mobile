@@ -9,7 +9,7 @@
         />
 
     <solid
-        android:color="@color/white"
+        android:color="#ECEFF1"
         />
 
 </shape>

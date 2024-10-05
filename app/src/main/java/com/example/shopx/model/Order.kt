@@ -9,7 +9,7 @@ data class Order(
 
 data class OrderRequest(
     val customerId: String?,
-    val vendorId: String? = null,
+    val vendorId: String?,
     val productId: String?,
     val productName: String?,
     val quantity: Int,
@@ -38,4 +38,24 @@ data class OrderItem(
     val itemId: String,
     val productId: String,
     val vendorId: String
+)
+
+
+data class CartUpdateRequest(
+    val quantity: Int,
+    val size: String? = null
+)
+
+data class OrderResponse(
+    val orderId: String,
+    val customerId: String,
+    val status: String?,
+    val address: String?,
+    val isInCart: Boolean,
+    val note: String?,
+    val tel: String?,
+    val canceledBy: String?,
+    val createdAt: String,
+    val deliveredAt: String?,
+    val items: List<CartItem>
 )

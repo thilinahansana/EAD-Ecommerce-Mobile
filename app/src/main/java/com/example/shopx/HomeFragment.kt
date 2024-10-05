@@ -4,6 +4,7 @@ package com.example.shopx
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,12 +38,16 @@ class HomeFragment : Fragment() {
         setupRecyclerView()
         setupFilterButton()
         fetchProducts()
+
+        Log.i("String" , "sdfsdfsdfsdgsdghuuuuu $products" )
     }
 
     private fun setupRecyclerView() {
         productAdapter = ProductAdapter(filteredProducts) { product ->
             // Navigate to ProductDetailsActivity with product data
             val intent = Intent(context, ProductDetailsActivity::class.java).apply {
+                putExtra("productId" , product.productId)
+                putExtra("vendorId", product.vendorId)
                 putExtra("productName", product.name)
                 putExtra("productDescription", product.description)
                 putExtra("productPrice", product.price)
@@ -89,6 +94,8 @@ class HomeFragment : Fragment() {
                 filteredProducts.clear()
                 filteredProducts.addAll(products)
                 productAdapter.notifyDataSetChanged()
+
+                Log.i("String " , "gelooooo $fetchedProducts")
             } catch (e: Exception) {
                 Toast.makeText(context, "Error fetching products: ${e.message}", Toast.LENGTH_LONG).show()
             }
