@@ -1,14 +1,18 @@
 package com.example.shopx
 
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shopx.adapter.OrderItemAdapter
 import com.example.shopx.databinding.ActivityOrderTrakingBinding
+import com.example.shopx.model.Order
+import com.example.shopx.model.OrderItem
 
 class OrderTrackingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOrderTrakingBinding
+    private lateinit var orderItemAdapter: OrderItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,35 +20,28 @@ class OrderTrackingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Retrieve order tracking details from the intent
-        val orderId = intent.getStringExtra("orderId")
-        val orderStatus = intent.getStringExtra("orderStatus")
-        val trackingDetails = intent.getStringExtra("trackingDetails")
+        val orderId = intent.getStringExtra("ORDER_ID")
+        val orderStatus = intent.getStringExtra("ORDER_STATUS")
+        val trackingDetails = intent.getStringExtra("TRACKING_DETAILS")
+        @Suppress("DEPRECATION")
+        val itemList = intent.getSerializableExtra("ITEM_LIST") as? ArrayList<OrderItem>
+
+        Log.i("String", "Order Tracking $itemList")
 
         // Set the details in the UI
-        binding.orderIdText.text = "Order ID: $orderId"
-        binding.orderStatusText.text = "Status: $orderStatus"
-        binding.trackingDetailsText.text = trackingDetails
+        binding.orderIdText.text = getString(R.string.order_id_format, orderId)
+        binding.orderStatusText.text = getString(R.string.order_status_format, orderStatus)
+        binding.trackingDetailsText.text = trackingDetails ?: getString(R.string.tracking_details_unavailable)
 
-        // Show rating option only for delivered orders
-        if (orderStatus == "Delivered") {
-            binding.ratingButton.apply {
-                visibility = View.VISIBLE
-                setOnClickListener {
-                    showRatingDialog()
-                }
-            }
-        } else {
-            binding.ratingButton.visibility = View.GONE
-        }
+        // Set up RecyclerView
+        setupRecyclerView(itemList)
     }
 
-    private fun showRatingDialog() {
-        val dialog = RatingDialogFragment { rating, review ->
-            // Handle the rating submission (e.g., save to database)
-            // Here, you can handle the rating submission
-            // For now, we'll just print the rating and review
-            println("Rating: $rating, Review: $review")
+    private fun setupRecyclerView(itemList: List<OrderItem>?) {
+        itemList?.let {
+            binding.itemsRecyclerView.layoutManager = LinearLayoutManager(this)
+            orderItemAdapter = OrderItemAdapter(this, it)
+            binding.itemsRecyclerView.adapter = orderItemAdapter
         }
-        dialog.show(supportFragmentManager, "RatingDialogFragment")
     }
 }

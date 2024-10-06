@@ -2,52 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/white">
+    android:padding="16dp">
 
+    <!-- Order ID TextView -->
     <TextView
-        android:id="@+id/order_id_text"
+        android:id="@+id/orderIdText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order ID"
-        android:textSize="18sp"
-        android:fontFamily="monospace"
-        android:textStyle="bold"
-        android:textColor="@color/headingclr"
-        android:paddingBottom="8dp" />
+        android:text="Order ID: 12345"
+    android:textSize="18sp"
+    android:textStyle="bold" />
 
+    <!-- Order Status TextView -->
     <TextView
-        android:id="@+id/order_status_text"
+        android:id="@+id/orderStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status"
-        android:fontFamily="monospace"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:paddingBottom="8dp" />
+        android:text="Status: Shipped"
+    android:textSize="16sp" />
 
+    <!-- Tracking Details TextView -->
     <TextView
-        android:id="@+id/tracking_details_text"
+        android:id="@+id/trackingDetailsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tracking Details"
-        android:fontFamily="monospace"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:paddingBottom="16dp" />
+        android:text="Tracking Details: In Transit"
+    android:textSize="14sp"
+    android:layout_marginTop="8dp" />
 
-    <!-- Button to rate the product -->
-    <Button
-        android:id="@+id/rating_button"
+    <!-- Items RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rate this Order"
-        android:fontFamily="monospace"
-        android:textColor="@color/white"
-        android:backgroundTint="@drawable/custom_button"
-        android:padding="2dp"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:visibility="visible" /> <!-- Initially hidden -->
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        tools:listitem="@layout/item_layout"
+        />
+
 </LinearLayout>
