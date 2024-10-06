@@ -18,4 +18,10 @@
         <item>Medium</item>
         <item>Large</item>
     </string-array>
+
+
+    <string name="order_id_format">Order ID: %1$s</string>
+    <string name="order_status_format">Status: %1$s</string>
+    <string name="tracking_details_unavailable">Tracking details unavailable</string>
+    <string name="rating_confirmation">Rating: %1$.1f, Review: %2$s</string>
 </resources>

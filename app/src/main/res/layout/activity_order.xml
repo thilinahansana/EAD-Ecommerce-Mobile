@@ -19,14 +19,15 @@
 
     <!-- RecyclerView for displaying orders -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orders_recycler_view"
+        android:id="@+id/ordersRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/orders_toolbar"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/order_item"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orders_toolbar"
+        tools:listitem="@layout/order_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

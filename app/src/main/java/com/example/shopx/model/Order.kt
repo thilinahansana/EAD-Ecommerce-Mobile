@@ -1,11 +1,18 @@
 package com.example.shopx.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Order(
+    val customerId: String,
     val orderId: String,
-    val orderDate: String,
-    val orderStatus: String,
-    val trackingDetails: String
-)
+    val status: String?,
+    val note: String?,
+    val canceledBy: String?,
+    val createdAt: String,
+    val items: List<OrderItem>
+) : Parcelable
 
 data class OrderRequest(
     val customerId: String?,
@@ -17,6 +24,25 @@ data class OrderRequest(
     val imageUrl: String?,
     val size: String = "Default"
 )
+
+
+
+@Parcelize
+data class OrderItem(
+    val itemId: String,
+    val orderId: String,
+    val productId: String,
+    val vendorId: String,
+    val productName: String,
+    val quantity: Int,
+    val price: String,
+    val size: String,
+    val imageUrl: String,
+    val isCanceled: Boolean,
+    val isActive: Boolean,
+    val status: String,
+    val createdAt: String
+) : Parcelable
 
 data class OrderData(
     val customerId: String,
@@ -32,12 +58,6 @@ data class OrderData(
     val dispatchedAt: String? = null,
     val deliveredAt: String? = null,
     val items: List<OrderItem>
-)
-
-data class OrderItem(
-    val itemId: String,
-    val productId: String,
-    val vendorId: String
 )
 
 
@@ -59,3 +79,12 @@ data class OrderResponse(
     val deliveredAt: String?,
     val items: List<CartItem>
 )
+
+data class OrderHistoryResponse(
+    val orderId: String,
+    val status: String,
+    val items: List<OrderItem>,
+    val createdAt: String
+)
+
+data class OrderDetails(val address: String, val phone: String)
