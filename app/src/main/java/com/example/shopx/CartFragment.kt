@@ -17,6 +17,7 @@ import com.example.shopx.model.CartItemWithDetails
 import com.example.shopx.model.CartResponse
 import com.example.shopx.model.OrderDetails
 import com.example.shopx.service.RetrofitInstance
+import com.example.shopx.session.SessionManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

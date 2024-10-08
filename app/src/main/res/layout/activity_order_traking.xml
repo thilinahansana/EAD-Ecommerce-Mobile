@@ -7,6 +7,12 @@
     android:padding="16dp">
 
     <!-- Order ID TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        >
     <TextView
         android:id="@+id/orderIdText"
         android:layout_width="wrap_content"
@@ -31,6 +37,8 @@
         android:text="Tracking Details: In Transit"
     android:textSize="14sp"
     android:layout_marginTop="8dp" />
+
+    </LinearLayout>
 
     <!-- Items RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView

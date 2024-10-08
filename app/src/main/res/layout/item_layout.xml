@@ -3,6 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/rounded_background"
+    android:layout_margin="10dp"
+    android:elevation="10dp"
     android:padding="16dp">
 
     <TextView
@@ -31,11 +34,6 @@
         android:layout_marginTop="8dp"
         android:text="Rate Item" />
 
-    <Button
-        android:id="@+id/view_vendor_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="View Vendor Profile" />
+
 
 </LinearLayout>

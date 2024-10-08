@@ -31,7 +31,9 @@
         android:layout_height="wrap_content"
         android:text="John Doe"
         android:fontFamily="monospace"
+        android:elevation="10dp"
         android:textSize="22sp"
+        android:shadowColor="@color/black"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:gravity="center"
@@ -45,24 +47,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="john.doe@example.com"
+        android:shadowColor="@color/headingclr"
+        android:elevation="10dp"
         android:textSize="16sp"
-        android:textColor="@color/black"
+        android:background="@drawable/profile_email_back"
+        android:textColor="@color/profileemail"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/user_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:padding="4dp"
+    app:layout_constraintTop_toBottomOf="@id/user_name"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- My Orders Section -->
     <androidx.cardview.widget.CardView
         android:id="@+id/my_orders_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="6dp"
         android:padding="16dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_background"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/user_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -72,26 +80,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:elevation="16dp">
 
             <ImageView
                 android:id="@+id/my_orders_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="6dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/ic_street"
-                />
+                app:tint="@color/headingclr" />
 
             <TextView
                 android:id="@+id/my_orders_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="My Orders"
-                android:fontFamily="monospace"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium"
+                android:textSize="20sp"
+                android:textColor="@color/headingclr"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -112,10 +125,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="6dp"
         android:padding="16dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:cardCornerRadius="8dp"
+        android:background="@drawable/rounded_background"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -125,26 +141,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:elevation="16dp"
+            android:padding="8dp">
 
             <ImageView
                 android:id="@+id/account_info_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="16dp"
-                android:padding="6dp"
+                android:padding="8dp"
                 android:src="@drawable/ic_account_info"
-                />
+                app:tint="@color/headingclr" />
 
             <TextView
                 android:id="@+id/account_info_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Account Information"
-                android:fontFamily="monospace"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium"
+                android:textSize="20sp"
+                android:textColor="@color/headingclr"
+                android:textStyle="bold"
+                android:letterSpacing="0.02"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -157,12 +178,12 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/account_info_card"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="16dp"
-        android:padding="12dp"
-        android:textStyle="bold" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

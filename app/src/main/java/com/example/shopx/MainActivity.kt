@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.shopx.databinding.ActivityMainBinding
+import com.example.shopx.session.SessionManager
 import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {

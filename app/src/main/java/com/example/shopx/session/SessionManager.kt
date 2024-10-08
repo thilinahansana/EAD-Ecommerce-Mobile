@@ -1,4 +1,4 @@
-package com.example.shopx
+package com.example.shopx.session
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -13,7 +13,7 @@ class SessionManager(context: Context) {
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
-
+    //save user session
     fun saveUserSession(token: String, userJson: String) {
         Log.d("SessionManager", "Saving user JSON: $userJson")
         prefs.edit()
@@ -23,8 +23,10 @@ class SessionManager(context: Context) {
             .apply()
     }
 
+//    get user token
     fun getToken(): String? = prefs.getString("JWT_TOKEN", null)
 
+//     get user details
     fun getUser(): User? {
         val userJson = prefs.getString("USER_JSON", null) ?: return null
         Log.d("SessionManager", "User JSON retrieved: $userJson")
@@ -36,12 +38,15 @@ class SessionManager(context: Context) {
         }
     }
 
+    // check is user loggedin
     fun isUserLoggedIn(): Boolean = prefs.getBoolean("IS_LOGGED_IN", false)
 
+    // clear use session (logout)
     fun clearSession() {
         prefs.edit().clear().apply()
     }
 
+    // decode user token
     fun decodeToken(): Map<String, Any>? {
         val token = getToken() ?: return null
         return try {

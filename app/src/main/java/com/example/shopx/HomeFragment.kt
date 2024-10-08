@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
         setupFilterButton()
         fetchProducts()
 
-        Log.i("String" , "sdfsdfsdfsdgsdghuuuuu $products" )
+        Log.i("String" , "Product $products" )
     }
 
     private fun setupToolbar() {

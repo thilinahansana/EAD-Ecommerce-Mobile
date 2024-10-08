@@ -19,7 +19,9 @@ data class User(
     val lastName: String,
     val role: Int,
     val profilePicture: String?,
-    val phoneNumber: String?
+    val phoneNumber: String?,
+    val addresss: Address?,
+    val updatedDate: String
 )
 
 @JsonClass(generateAdapter = true)
@@ -47,3 +49,15 @@ data class PersonalInfo(
     val phoneNumber: String,
     val profileImageUrl: String? = null
 )
+
+data class UpdateUserRequest(
+    val firstName: String,
+    val lastName: String,
+    val phoneNumber: String,
+    val role: Int?,
+    val address: Address,
+    val profilePicture: String?,
+    val updatedDate: String,
+)
+
+
