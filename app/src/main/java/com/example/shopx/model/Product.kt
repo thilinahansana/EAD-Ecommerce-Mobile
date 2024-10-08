@@ -3,6 +3,7 @@ package com.example.shopx.model
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+//Product Model
 @Parcelize
 data class Product(
     val productId: String,
