@@ -84,66 +84,6 @@ interface ApiService {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //    @GET("vendor/products/product/{productId}")
     // suspend fun getProductById(@Path("productId") productId: String): Product
 
@@ -200,6 +140,66 @@ interface ApiService {
 
     // @DELETE("/api/v1/deactivate-user/{customerID}")
     // fun deactivateUser(@Path("customerID") customerID: String): Call<Void>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
