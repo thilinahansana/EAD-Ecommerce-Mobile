@@ -46,6 +46,24 @@ data class OrderItem(
     val createdAt: String
 ) : Parcelable
 
+// @Parcelize
+// data class OrderItem(
+//     val itemId: String,
+//     val orderId: String,
+//     val productId: String,
+//     val vendorId: String,
+//     val productName: String,
+//     val quantity: Int,
+//     val price: String,
+//     val size: String,
+//     val imageUrl: String,
+//     val isCanceled: Boolean,
+//     val isActive: Boolean,
+//     val rating: Int = 0,
+//     val status: String,
+//     val createdAt: String
+// ) : Parcelable
+
 
 
 data class OrderDetails(val address: String, val phone: String)
