@@ -3,6 +3,7 @@ package com.example.shopx.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+//Order Model
 @Parcelize
 data class Order(
     val customerId: String,
