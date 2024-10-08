@@ -10,6 +10,7 @@ import com.example.shopx.adapter.NotificationAdapter
 import com.example.shopx.model.NotificationResponse
 import com.example.shopx.service.ApiService
 import com.example.shopx.service.RetrofitInstance
+import com.example.shopx.session.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

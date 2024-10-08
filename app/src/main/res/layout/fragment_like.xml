@@ -13,16 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Search..."
+
         android:padding="12dp"
-        android:background="@android:drawable/edit_text"
+        android:background="@drawable/rounded_edit_text"
         android:textSize="16sp" />
 
     <!-- Search Button -->
     <Button
         android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:text="Search"
+        android:background="@drawable/search_button"
         android:layout_gravity="end" />
 
 

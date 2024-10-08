@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.shopx.databinding.FragmentProfileBinding
+import com.example.shopx.session.SessionManager
 
 class ProfileFragment : Fragment() {
 
@@ -51,7 +53,7 @@ class ProfileFragment : Fragment() {
             binding.userEmail.text = it.email
 
             Glide.with(this)
-                .load(it.profilePicture)
+                .load(it.profilePicture).apply(RequestOptions.circleCropTransform())
                 .into(binding.profileImage)
             // Add more fields as needed
         } ?: run {

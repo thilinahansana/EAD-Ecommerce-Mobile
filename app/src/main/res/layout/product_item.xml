@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/textViewProductName"
-        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -38,7 +38,7 @@
 
     <TextView
         android:id="@+id/textViewProductPrice"
-        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -58,13 +58,13 @@
         android:fontFamily="monospace"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewProductPrice"
-        tools:text="In stock: 10" />
+        tools:text="Left: 10" />
 
     <ToggleButton
         android:id="@+id/btnLike"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:background="@drawable/ic_heart_svgrepo_com"
+        android:background="@drawable/cart_icon"
         android:textOff=""
         android:textOn=""
         app:layout_constraintEnd_toEndOf="parent"

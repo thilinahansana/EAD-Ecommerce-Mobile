@@ -1,0 +1,8 @@
+<!-- res/drawable/rounded_edit_text.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:topRightRadius="8dp"  android:bottomRightRadius="8dp"/> <!-- Adjust radius for rounded corners -->
+    <solid android:color="@color/headingclr" /> <!-- Background color -->
+    <padding android:left="8dp" android:right="8dp" android:top="8dp" android:bottom="8dp" /> <!-- Padding -->
+
+</shape>

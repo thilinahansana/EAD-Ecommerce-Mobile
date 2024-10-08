@@ -1,7 +1,8 @@
 package com.example.shopx.model
 
-import java.time.ZonedDateTime
 
+
+// cart response
 data class CartResponse(
     val orderId: String,
     val customerId: String,
@@ -15,7 +16,7 @@ data class CartResponse(
     val deliveredAt: String?,
     val items: List<CartItem>
 )
-
+//cart item
 data class CartItem(
     val itemId: String,
     val productId: String?,
@@ -32,9 +33,9 @@ data class CartItem(
     val createdAt: String,
 )
 
-
+// cart item details
 data class CartItemWithDetails(
     val cartItem: CartItem,
-    val product: Product?, // Assuming you have a Product model
+    val product: Product?,
     var quantity: Int = 1 // Default quantity is set to 1
 )

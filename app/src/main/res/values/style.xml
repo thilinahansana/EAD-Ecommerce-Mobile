@@ -1,0 +1,9 @@
+<resources>
+    <!-- Define a custom text appearance -->
+    <style name="CustomToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">monospace</item> <!-- Use your desired font family -->
+        <item name="android:textStyle">bold</item> <!-- Text style like bold, italic, etc. -->
+        <item name="android:textSize">20sp</item> <!-- Custom font size -->
+        <item name="android:textColor">@color/headingclr</item> <!-- Text color -->
+    </style>
+</resources>

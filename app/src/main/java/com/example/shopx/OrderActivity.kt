@@ -12,6 +12,7 @@ import com.example.shopx.dialog.CancellationDialog
 import com.example.shopx.model.Order
 import com.example.shopx.service.ApiService
 import com.example.shopx.service.RetrofitInstance
+import com.example.shopx.session.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +21,7 @@ class OrderActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOrderBinding
     private lateinit var apiService: ApiService
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +29,19 @@ class OrderActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         apiService = RetrofitInstance.api
+        sessionManager = SessionManager(this)
+
+
 
         // Setup RecyclerView
         binding.ordersRecyclerView.layoutManager = LinearLayoutManager(this)
 
 
         // Fetch orders from API
-        val userId = "3d10587a-d2d0-4a0b-ab8b-6a254884c607" // Replace with actual userId
-        fetchOrderHistory(userId)
+        val userId = sessionManager.getUser()// Replace with actual userId
+        if (userId != null) {
+            fetchOrderHistory(userId.id)
+        }
 
     }
 
@@ -83,7 +90,9 @@ class OrderActivity : AppCompatActivity() {
     }
 
     private fun cancelOrder(orderId: String, requestNote: String) {
-        val customerId = "3d10587a-d2d0-4a0b-ab8b-6a254884c607" // Replace with actual customerId
+
+
+        val customerId = sessionManager.getUser()?.id // Replace with actual customerId
 
         val cancelRequest = mapOf(
             "orderId" to orderId,
@@ -91,12 +100,14 @@ class OrderActivity : AppCompatActivity() {
             "customerId" to customerId
         )
 
-        apiService.cancelOrder(cancelRequest).enqueue(object : Callback<Void> {
+        apiService.cancelOrder(cancelRequest as Map<String, String>).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@OrderActivity, "Order cancelled successfully", Toast.LENGTH_SHORT).show()
                     // Optionally refresh the order list
-                    fetchOrderHistory(customerId)
+                    if (customerId != null) {
+                        fetchOrderHistory(customerId)
+                    }
                 } else {
                     Toast.makeText(this@OrderActivity, "Failed to cancel order", Toast.LENGTH_SHORT).show()
                 }
