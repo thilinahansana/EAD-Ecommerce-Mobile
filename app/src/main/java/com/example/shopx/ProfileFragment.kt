@@ -62,11 +62,7 @@ class ProfileFragment : Fragment() {
             binding.userEmail.text = "No email available"
         }
 
-        // Display some information from the JWT if needed
-//        sessionManager.decodeToken()?.let { claims ->
-//            // Example: Display the role from JWT
-//            binding.textViewRole.text = "Role: ${claims["role"]}"
-//        }
+
     }
 
     private fun navigateToLogin() {
