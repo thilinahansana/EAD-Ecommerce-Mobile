@@ -76,7 +76,59 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private suspend fun handleResponse(response: Response) {
+        withContext(Dispatchers.Main) {
+            val responseBody = response.body?.string()
+            val errorMessageTextView = binding.textViewError // Bind the TextView
 
+            when (response.code) {
+                200 -> {
+                    // Successful login response
+                    val jsonObject = JSONObject(responseBody)
+                    val token = jsonObject.getString("token")
+                    val userJson = jsonObject.getJSONObject("user")
+
+                    if (userJson.getBoolean("isActive")) {
+                        // User is active, proceed with login
+                        Log.d("Login", "Successful response: $responseBody")
+
+                        // Save session data
+                        sessionManager.saveUserSession(token, userJson.toString())
+
+                        // Hide error message, clear previous errors
+                        errorMessageTextView.visibility = View.GONE
+
+                        // Proceed to MainActivity
+                        Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
+                    } else {
+                        // Account is not activated
+                        errorMessageTextView.text = "Account Not Activated"
+                        errorMessageTextView.visibility = View.VISIBLE // Show the error message
+                    }
+                }
+                403 -> {
+                    // Handle forbidden response for inactive accounts
+                    val errorMessage = extractErrorMessage(responseBody)
+                    Log.e("Login", "Error response: $errorMessage")
+
+                    // Display the error message in the TextView
+                    errorMessageTextView.text = errorMessage ?: "Unknown error"
+                    errorMessageTextView.visibility = View.VISIBLE // Show the error message
+                }
+                else -> {
+                    // Handle other error codes
+                    val errorMessage = extractErrorMessage(responseBody)
+                    Log.e("Login", "Error response: $errorMessage")
+
+                    // Display the error message in the TextView
+                    errorMessageTextView.text = errorMessage ?: "Unknown error"
+                    errorMessageTextView.visibility = View.VISIBLE // Show the error message
+                }
+            }
+        }
+    }
 
 
     // Function to extract error messages from the response body
