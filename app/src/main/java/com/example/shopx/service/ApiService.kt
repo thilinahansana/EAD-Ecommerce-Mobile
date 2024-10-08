@@ -82,5 +82,124 @@ interface ApiService {
     @DELETE("/api/v1/deactivate-user/{customerID}")
     fun deactivateUser(@Path("customerID") customerID: String): Call<Void>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //    @GET("vendor/products/product/{productId}")
+    // suspend fun getProductById(@Path("productId") productId: String): Product
+
+
+    // @POST("Order/")
+    // fun postOrder(@Body orderData: OrderRequest): Call<Void>
+
+
+    // @GET("Order/cart/")
+    // fun getCartItems(@Query("customerId") customerId: String): Call<CartResponse>
+
+    // @GET("Notification/my/notifications")
+    // fun getNotifications(@Query("userId") userId: String): Call<List<NotificationResponse>>
+
+    // @DELETE("Order/cart/item")
+    // fun deleteCartItem(
+    //     @Query("orderId") orderId: String,
+    //     @Query("itemId") itemId: String
+    // ): Call<Void>
+
+    // @POST("Order/placing")
+    // fun placeOrder(
+    //     @Query("orderId") orderId: String,
+    //     @Body orderRequest: OrderDetails
+    // ): Call<Void>
+
+
+    // @GET("Order/history")
+    // fun getOrderHistory(@Query("customerId") userId: String): Call<List<Order>>
+
+
+    // @POST("Order/request/cancel")
+    // fun cancelOrder(@Body cancelRequest: Map<String, String>): Call<Void>
+
+    // @POST("Feedback/")
+    // fun submitFeedback(
+    //     @Body feedbackRequest: FeedbackRequest
+    // ): Call<Void>
+
+    // @GET("Feedback/vender-ranking/{vendorId}")
+    // fun getVendorRating(@Path("vendorId") vendorId: String): Call<VendorRatingResponse>
+
+    // @GET("/api/v1/Feedback/product/feedback/{productId}")
+    // fun getVendorFeedback(@Path("productId") vendorId: String): Call<List<FeedbackResponse>>
+
+    // @PATCH("api/v1/Feedback")
+    // fun updateFeedback(@Query("feedbackId") feedbackId: String, @Body updateRequest: FeedbackUpdateRequest): Call<Void>
+
+    // @PATCH("update-user/{userID}")
+    // fun updateUser(
+    //     @Path("userID") userID: String,
+    //     @Body updateRequest: UpdateUserRequest
+    // ): Call<Void>
+
+    // @DELETE("/api/v1/deactivate-user/{customerID}")
+    // fun deactivateUser(@Path("customerID") customerID: String): Call<Void>
+
 }
 
