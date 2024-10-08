@@ -59,5 +59,14 @@ class ProductAdapter(private val products: List<Product>, private val onLikeClic
         holder.bind(products[position])
     }
 
+    //  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
+    //     val binding = ProductItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    //     return ProductViewHolder(binding)
+    // }
+
+    // override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+    //     holder.bind(products[position])
+    // }
+
     override fun getItemCount() = products.size
 }
