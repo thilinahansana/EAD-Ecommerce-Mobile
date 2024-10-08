@@ -1,5 +1,6 @@
 package com.example.shopx.model
 
+//Notification Model
 data class NotificationResponse(
     val notifyId: String,
     val message: String,
