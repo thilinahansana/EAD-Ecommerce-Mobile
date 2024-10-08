@@ -46,24 +46,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun displayUserInfo() {
-        val user = sessionManager.getUser()
-        user?.let {
-            binding.userName.text = "${it.firstName} ${it.lastName}"
-            binding.userEmail.text = it.email
 
-            Glide.with(this)
-                .load(it.profilePicture).apply(RequestOptions.circleCropTransform())
-                .into(binding.profileImage)
-            // Add more fields as needed
-        } ?: run {
-            // Handle the case where user is null (maybe show a default message)
-            binding.userName.text = "Guest"
-            binding.userEmail.text = "No email available"
-        }
-
-
-    }
 
     private fun navigateToLogin() {
         startActivity(Intent(activity, LoginActivity::class.java))
