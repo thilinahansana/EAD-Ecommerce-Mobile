@@ -33,6 +33,22 @@ data class CartItem(
     val createdAt: String,
 )
 
+// data class CartItem(
+//     val itemId: String,
+//     val productId: String?,
+//     val vendorId: String?,
+//     val size: String,
+//     val orderId: String? = null,
+//     val productName: String,
+//     val quantity: Int,
+//     val price: String,
+//     val imageUrl : String,
+//     val isCancel : Boolean? = false,
+//     val isActive : Boolean? = false,
+//     val status: String,
+//     val createdAt: String,
+// )
+
 // cart item details
 data class CartItemWithDetails(
     val cartItem: CartItem,
